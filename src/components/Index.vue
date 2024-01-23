@@ -106,7 +106,13 @@
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-        </details>
+          <p class="summary_content invite">
+            Convite Individual
+          </p>
+          <p class="summary_content invite">
+            Contamos com sua presença nesse dia especial!
+          </p>
+          </details>
 
        
       </div>
