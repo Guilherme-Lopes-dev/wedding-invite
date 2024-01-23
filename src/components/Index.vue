@@ -20,14 +20,14 @@
       <img src="../assets/background.png" class="bottom_image" alt="" />
     </div>
     <div class="scroll">
-      <div class="arrow" style="display: none">
+      <button class="arrow" >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
             d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
           />
         </svg>
-      </div>
+      </button>
       <div class="texts">
         <div class="text_top">
           <p class="text_inner">
@@ -73,13 +73,26 @@
             nossa lua de mel, segue abaixo nossa chave pix! E caso não possa,
             não há problemas, o nosso presente é ter a sua companhia!
           </p>
+          <div class="btn_container">
+            <button @click="copyPix" :class="isActive ? 'active' : ''">
+              Copiar Chave Pix
+            </button>
+          </div>
         </details>
         <details>
           <summary>Como Chegar</summary>
           <p class="summary_content">
-            O evento acontecerá em Goiânia/GO, Estrada 105, Chácaras Recreio São
-            João, Goiânia - GO, 74470-140.
+            O evento acontecerá na rua
+            <br />
+            São Pedro chácara 105 parque Maracanã
           </p>
+          <a
+            class="redirect"
+            href="https://www.google.com/maps?q=-16.606889724731445,-49.36072540283203&z=17&hl=pt-BR"
+            target="_blank"
+          >
+            Localização aqui
+          </a>
         </details>
       </div>
     </div>
@@ -87,16 +100,51 @@
 </template>
 
 <script>
+import {ref} from 'vue'
+
 export default {
   name: "home",
   setup() {
-    return {};
+    const copyPix = () => {
+      var urlToCopy = 'b86bf796-916f-45ad-bb16-5a0f7393ea67';
+
+      var tempElement = document.createElement("textarea");
+
+      tempElement.value = urlToCopy;
+
+      tempElement.style.position = "absolute";
+      tempElement.style.left = "-9999px";
+      document.body.appendChild(tempElement);
+
+      tempElement.select();
+
+      try {
+        document.execCommand("copy");
+        isActive.value = true
+      } catch (err) {
+        console.error("Erro ao copiar o conteúdo: ", err);
+      } finally {
+        document.body.removeChild(tempElement);
+      }
+      setTimeout(() => {
+        isActive.value = false
+      }, 5000)
+    };
+    const isActive = ref(false)
+    return {
+      isActive,
+      copyPix
+    };
   },
 };
 </script>
 <style>
 @import "./style.scss";
-
+button{
+  font-family: "Montserrat", sans-serif;
+font-size: 18px;
+font-weight: 500;
+}
 p {
   margin: 0;
 }
