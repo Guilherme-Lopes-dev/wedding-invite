@@ -1,10 +1,11 @@
 <template>
   <div class="main">
     <div class="fixed_text">
+    <div class="bg_texts">
       <div class="names">
-        <p class="name">Guilherme</p>
-        <p class="">&</p>
         <p class="name">Andreza</p>
+        <p class="">&</p>
+        <p class="name">Guilherme</p>
       </div>
       <div class="phrases">
         <p class="phrase">"A vida une as pessoas certas no momento certo.</p>
@@ -15,12 +16,13 @@
         </div>
       </div>
     </div>
+    </div>
     <div class="fixed">
       <img src="../assets/background.png" class="top_image" alt="" />
       <img src="../assets/background.png" class="bottom_image" alt="" />
     </div>
     <div class="scroll">
-      <button class="arrow" >
+      <button class="arrow">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -93,20 +95,33 @@
           >
             Localização aqui
           </a>
+          <div class="map_container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3823.3958730860413!2d-49.36330032485261!3d-16.60688968415327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDM2JzI0LjgiUyA0OcKwMjEnMzguNiJX!5e0!3m2!1spt-BR!2sbr!4v1706019421315!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </details>
+
+       
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {ref} from 'vue'
+import { ref } from "vue";
 
 export default {
   name: "home",
   setup() {
     const copyPix = () => {
-      var urlToCopy = 'b86bf796-916f-45ad-bb16-5a0f7393ea67';
+      var urlToCopy = "b86bf796-916f-45ad-bb16-5a0f7393ea67";
 
       var tempElement = document.createElement("textarea");
 
@@ -120,30 +135,30 @@ export default {
 
       try {
         document.execCommand("copy");
-        isActive.value = true
+        isActive.value = true;
       } catch (err) {
         console.error("Erro ao copiar o conteúdo: ", err);
       } finally {
         document.body.removeChild(tempElement);
       }
       setTimeout(() => {
-        isActive.value = false
-      }, 5000)
+        isActive.value = false;
+      }, 5000);
     };
-    const isActive = ref(false)
+    const isActive = ref(false);
     return {
       isActive,
-      copyPix
+      copyPix,
     };
   },
 };
 </script>
 <style>
 @import "./style.scss";
-button{
+button {
   font-family: "Montserrat", sans-serif;
-font-size: 18px;
-font-weight: 500;
+  font-size: 18px;
+  font-weight: 500;
 }
 p {
   margin: 0;
