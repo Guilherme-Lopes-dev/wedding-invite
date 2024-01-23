@@ -164,7 +164,7 @@ p {
   margin: 0;
 }
 .name {
-  font-size: 82px;
+  font-size: 72px;
   font-family: "The Amsterdam", sans-serif;
 }
 
@@ -172,7 +172,7 @@ p {
   text-align: center;
 
   font-family: "latian", sans-serif;
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 400;
 }
 .date {
